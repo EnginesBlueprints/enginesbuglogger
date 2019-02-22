@@ -16,7 +16,7 @@
         "patch": 0
       }
     },
-    "timestamp": "2019-02-22T15:25:30+11:00"
+    "timestamp": "2019-02-22T18:17:14+11:00"
   },
   "software": {
     "base": {
@@ -25,6 +25,12 @@
       "deployment_type": "web",
       "http_protocol": "https_only",
       "continuous_deployment": true
+    },
+    "scripts": {
+      "start": {
+        "language": "sh",
+        "content": "#!/bin/sh\r\ncd /home/app\r\ngit pull\r\nbundle --standalone\r\nruby start.rb -e production"
+      }
     },
     "installed_packages": [
       {
@@ -41,8 +47,8 @@
         "type_path": "filesystem/local/filesystem",
         "variables": {
           "service_name": "_Engines_Builder(engine_name)",
-          "volume_src": null,
-          "engine_path": "/home/fs/bug_reports",
+          "volume_src": "",
+          "engine_path": "/home/fs/exception_reports",
           "permissions": "rw",
           "user": "_Engines_Builder(data_uid)",
           "group": "_Engines_Builder(group_uid)"
